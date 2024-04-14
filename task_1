@@ -14,7 +14,6 @@ def caching_fibonacci():
             # Якщо ні, обчислити його та зберегти в кеші
             else:
                 cache[n] = fibonacci(n-1) + fibonacci(n-2)
-                print(cache[n])
                 return cache[n]
         # Обробити виняток, якщо n не є цілим числом
         except TypeError:
