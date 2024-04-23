@@ -1,4 +1,4 @@
-def input_error(func):
+def input_error(func): # Декоратор для обробки помилок 
     def inner(*args, **kwargs):
         try:
             result = func(*args, **kwargs)
@@ -37,7 +37,7 @@ def show_phone(args, contacts): # Функція для виведення но�
     value = contacts[name]
     return value
 
-input_error
+@input_error
 def main(): # Основна функція для обробки запитів користувача. В ній використовуються інші функції
     contacts = {}
     print("Welcome to asistant bot")
