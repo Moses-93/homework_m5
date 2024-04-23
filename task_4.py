@@ -11,7 +11,6 @@ def input_error(func):
             return(f"Please enter the name and phone number: {error}")
     return inner
 
-
 @input_error
 def parse_input(user_input): # Функція для підготовки введеного корисувачем тексту. Розділяє команду та аргументи 
    cmd, *args = user_input.split()
@@ -22,7 +21,7 @@ def parse_input(user_input): # Функція для підготовки вве
 def add_contact(args, contacts): # Функція для додавання контактів в словник 
     name, phone = args
     contacts[name] = phone
-    return "Contact addet"
+    return "Contact added"
 
 @input_error
 def change_contact(args, contacts): # Функція для зміни номеру в існуючому контакті контакті 
@@ -33,9 +32,9 @@ def change_contact(args, contacts): # Функція для зміни номе�
         return "Contact updated."
 
 @input_error
-def snow_phone(args, contacts): # Функція для виведення номеру по імені контакта 
-    *_,phone = args
-    value = contacts[phone]
+def show_phone(args, contacts): # Функція для виведення номеру по імені контакта 
+    *_, name = args
+    value = contacts[name]
     return value
 
 input_error
@@ -56,7 +55,7 @@ def main(): # Основна функція для обробки запитів
         elif command == "add": #команда для додавання контакту 
             print(add_contact(args, contacts))      
         elif command == "phone": # команда для виведення номеру телефону по імені
-            print(snow_phone(args, contacts))
+            print(show_phone(args, contacts))
         elif command == "change": #команда для змінни номера телефону по імені 
             print(change_contact(args, contacts))
         elif command == "all": #команда для виведення всіх контактів
